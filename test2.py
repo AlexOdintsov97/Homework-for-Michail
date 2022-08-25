@@ -82,6 +82,19 @@ def find_initials(dict_user : dict):
             print(f"У пользователя {i} : нет пользователей с одинаковыми инициалами ")   
 
 
+def reverse_name_users(dict_user : dict):
+    a = set()
+    list_users = []
+    for key in dict_user.keys():
+        a.add(key.strip())
+        for value in dict_user[key]:
+            a.add(value.strip())
+    
+    for user in a:
+        name, last_name = user.split()
+        reverse_user = last_name + " " + name
+        list_users.append(reverse_user)
+    print(list_users)
 
-find_initials(dict_users_network)
+reverse_name_users(dict_users_network)
 
